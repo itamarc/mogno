@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+
+<project basedir="." default="compile" name="Mogno">
+<!-- ===================== Property Definitions =========================== -->
+  <property file="build.properties"/>
+  <property file="${user.home}/build.properties"/>
+
+
+<!-- ==================== File and Directory Names ======================== -->
+  <property name="build.dir" value="build"/>
+  <property name="dist.dir" value="dist"/>
+  <property name="web-dist.dir" value="web-dist"/>
+  <property environment="env"/>
+  <property name="sample.deploy.dir" value="${env.CATALINA_HOME}/webapps"/>
+
+<!-- ==================== Compilation Classpath =========================== -->
+
+  <path id="compile.classpath">
+    <fileset dir="lib">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${env.JAVA_HOME}/lib">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${shared.lib.dir}">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${j2ee.lib.dir}">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+
+<!-- ==================== All Target ====================================== -->
+  <target depends="clean,sample-dist,javadoc" description="Clean, create javadoc, then dist lib and sample" name="all"/>
+
+<!-- ==================== Prepare Target ================================== -->
+  <target description="Create needed dirs" name="prepare">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${dist.dir}/docs/api"/>
+    <mkdir dir="${web-dist.dir}/WEB-INF/lib/"/>
+  </target>
+
+<!-- ==================== Clean Target ==================================== -->
+  <target description="Delete old build and dist directories" name="clean">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+    <delete dir="${web-dist.dir}"/>
+    <ant dir="docs/sample/" inheritAll="false" target="clean"/>
+  </target>
+
+<!-- ==================== Compile Target ================================== -->
+  <target depends="prepare" description="Compile Java sources" name="compile">
+    <!-- Compile Java classes as necessary -->
+    <javac debug="${compile.debug}" deprecation="${compile.deprecation}" destdir="${build.dir}" optimize="${compile.optimize}" srcdir="src">
+        <classpath refid="compile.classpath"/>
+    </javac>
+
+    <!-- Copy associated resource files -->
+    <copy todir="${build.dir}">
+    <fileset dir="src" includes="**/*.properties"/>
+    </copy>
+  </target>
+
+<!-- ==================== Dist Target ===================================== -->
+  <target depends="compile" description="Create binary distribution" name="dist">
+	<ant dir="../liboktiva-util-java/" target="dist"/>
+	<copy todir="../mogno/lib/" verbose="true">
+		<fileset dir="../liboktiva-util-java/dist/" includes="*.jar"/>
+	</copy>
+    <delete verbose="true">
+	<fileset dir="${dist.dir}" includes="${app.name}_*.jar"/>
+    </delete>
+    <!-- Create application JAR file -->
+    <jar basedir="${build.dir}" jarfile="${dist.dir}/${app.name}_${app.version}.jar"/>
+  </target>
+
+<!-- ==================== Javadoc Target ================================== -->
+  <target depends="clean,dist" name="redist"/>
+  
+<!-- ==================== Web-Dist Target ===================================== -->
+  <target depends="prepare" description="Create Javadoc API documentation" name="javadoc">
+
+    <javadoc destdir="${dist.dir}/docs/api" excludepackagenames="com.oktiva.mogno.teste.*" packagenames="com.oktiva.mogno.*" sourcepath="src">
+      <classpath refid="compile.classpath"/>
+    </javadoc>
+
+  </target>
+
+<!-- ==================== Sample-Dist Target ===================================== -->
+  <target depends="dist" description="Create web distribution" name="web-dist">
+  <!-- copiar web.xml (config -> ${web-dist.dir}/WEB-INF/) -->
+    <copy todir="${web-dist.dir}/WEB-INF">
+    <fileset dir="config" includes="*.xml"/>
+    </copy>
+  <!-- copiar jar (${dist.dir} -> ${web-dist.dir}/WEB-INF/lib/) -->
+    <copy todir="${web-dist.dir}/WEB-INF/lib">
+    <fileset dir="${dist.dir}" includes="${app.name}_${app.version}.jar"/>
+    </copy>
+  <!-- copiar lib (${lib.home} -> ${web-dist.dir}/WEB-INF/lib/) -->
+    <copy todir="${web-dist.dir}/WEB-INF/lib">
+    <fileset dir="lib" includes="*.jar"/>
+    </copy>
+  <!-- criar war -->
+    <jar basedir="${web-dist.dir}" jarfile="${dist.dir}/${app.name}.war"/>
+  </target>
+  
+  <target depends="dist" description="Create sample application web archive" name="sample-dist">
+    <ant dir="docs/sample/" target="dist">
+      <property name="mogno.dist.dir" value="../../${dist.dir}"/>
+    </ant>
+  </target>
+    <target depends="dist" description="Deploys sample application to web container" name="sample-deploy">
+    <ant dir="docs/sample/" target="deploy">
+      <property name="mogno.dist.dir" value="../../${dist.dir}"/>
+      <property name="deploy.dir" value="${sample.deploy.dir}"/>
+    </ant>
+  </target>
+</project>

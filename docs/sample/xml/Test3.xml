@@ -1,0 +1,95 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Id$ -->
+
+<MognoComponent xmlns="http://www.oktiva.com.br/mogno" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.oktiva.com.br/mogno
+Component.xsd">
+	<prop name="name" value="Test3"/>
+	<prop name="title" value="Test"/>
+	<prop name="evOnShow" value="onPageShow"/>
+	<owned name="body">
+		<prop name="parent" value="Test3"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Body"/>
+		<prop name="content" value="Testando content do body...&lt;br&gt;"/>
+	</owned>
+	<owned name="h1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="0"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.H1"/>
+		<prop name="content" value="Título da Página 3"/>
+	</owned>
+	<owned name="h2">
+		<prop name="left" value="0"/>
+		<prop name="top" value="1"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.H2"/>
+		<prop name="content" value="Subtítulo da Página"/>
+	</owned>
+	<owned name="a1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="2"/>
+		<prop name="href" value="/mogno-sample/app?mognoOrigin=Test3&amp;mognoDestiny=Test1"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.A"/>
+		<prop name="content" value="Link de teste!!"/>
+	</owned>
+	<owned name="b1">
+		<prop name="parent" value="a1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.B"/>
+		<prop name="content" value="Texto em bold!"/>
+	</owned>
+	<owned name="i1">
+		<prop name="parent" value="b1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.I"/>
+		<prop name="content" value="Texto em itálico!"/>
+	</owned>
+	<owned name="quote">
+		<prop name="parent" value="p1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Blockquote"/>
+		<prop name="content" value="Nonono onno nono nonono.&lt;br&gt;Nono no nonono on no.&lt;br&gt;Blabla bla blablabla blabla."/>
+	</owned>
+	<owned name="p1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="3"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.P"/>
+		<prop name="content" value="Meu primeiro parágrafo!&lt;br&gt;Segunda linha do primeiro parágrafo."/>
+	</owned>
+	<owned name="br1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="4"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Br"/>
+	</owned>
+	<owned name="hr1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="5"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Hr"/>
+	</owned>
+	<owned name="simpleList1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="9"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.additional.SimpleList"/>
+	</owned>
+	<owned name="form1">
+		<prop name="top" value="8"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Form"/>
+	</owned>
+	<owned name="label1">
+		<prop name="top" value="0"/>
+		<prop name="left" value="0"/>
+		<prop name="parent" value="form1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Label"/>
+		<prop name="content" value="Primeiro Input:"/>
+	</owned>
+	<owned name="input1">
+		<prop name="top" value="0"/>
+		<prop name="left" value="1"/>
+		<prop name="parent" value="form1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Input"/>
+		<prop name="type" value="text"/>
+	</owned>
+</MognoComponent>

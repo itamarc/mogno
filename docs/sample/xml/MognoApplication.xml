@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="yes"?>
+
+<MognoApplication xmlns="http://www.oktiva.com.br/mogno" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.oktiva.com.br/mogno
+Application.xsd">
+<TopLevel name="Test1" class="com.oktiva.mogno.html.PrototypePage" xml="Test1.xml"/>
+<TopLevel name="Test3" class="com.oktiva.mogno.teste.TestSimpleList" xml="Test3.xml"/>
+<DefaultTopLevel name="Test1"/>
+</MognoApplication>
+

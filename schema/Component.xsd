@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : Component.xsd
+    Created on : 5 de Fevereiro de 2003, 17:38
+    Author     : Itamar Carvalho <itamar@oktiva.com.br>
+    Description:
+        Mogno Component XML Schema.
+	(c) 2003 Oktiva Telecomunicações e Informática Ltda - http://www.oktiva.com.br
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	    targetNamespace="http://www.oktiva.com.br/mogno"
+	    xmlns="http://www.oktiva.com.br/mogno"
+	    elementFormDefault="unqualified">
+	<xsd:element name="MognoComponent">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="prop" type="propType" minOccurs="1" maxOccurs="unbounded"/>
+				<xsd:element name="owned" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="prop" type="propType" minOccurs="1" maxOccurs="unbounded"/>
+						</xsd:sequence>
+						<xsd:attribute name="name" type="xsd:string" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="name" type="xsd:string" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="propType">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- Example MognoApplication.xml -->
+<!-- (c) 2003 Oktiva Telecomunicações e Informática Ltda - http://www.oktiva.com.br -->
+<!-- $Id$ -->
+<MognoApplication xmlns="http://www.oktiva.com.br/mogno" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.oktiva.com.br/mogno
+Application.xsd">
+<!-- Register here all your TopLevels -->
+<TopLevel name="TopLevel1" class="com.oktiva.myapp.TopLevel1" xml="TopLevel1.xml"/>
+<!-- Put here the default TopLevel, that will be showed when the application is called with no parameters -->
+<DefaultTopLevel name="TopLevel1"/>
+</MognoApplication>

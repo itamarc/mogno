@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <classpathentry kind="src" path="src"/>
+    <classpathentry kind="var" path="JRE_LIB" rootpath="JRE_SRCROOT" sourcepath="JRE_SRC"/>
+    <classpathentry kind="lib" path="/usr/local/j2ee/lib/j2ee.jar"/>
+    <classpathentry kind="lib" path="/usr/local/j2ee/lib/j2eetools.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/ant.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/bsh.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/dom.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/jax-qname.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/jaxb-api.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/jaxb-libs.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/jaxb-ri.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/jaxb-xjc.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/jaxp-api.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/jde.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/libgcj.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/sax.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/xerces.jar"/>
+    <classpathentry kind="lib" path="/usr/share/java/xercesImpl.jar"/>
+    <classpathentry kind="output" path="build"/>
+</classpath>

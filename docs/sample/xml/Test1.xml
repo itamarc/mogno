@@ -1,0 +1,193 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- $Id$ -->
+
+<MognoComponent xmlns="http://www.oktiva.com.br/mogno" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.oktiva.com.br/mogno
+Component.xsd">
+<prop name="name" value="Test1"/>
+<prop name="title" value="Test"/>
+	<owned name="body">
+		<prop name="parent" value="Test1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Body"/>
+		<prop name="content" value="Testando content do body...&lt;br&gt;"/>
+	</owned>
+	<owned name="h1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="0"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.H1"/>
+		<prop name="content" value="Título da Página"/>
+	</owned>
+	<owned name="h2">
+		<prop name="left" value="0"/>
+		<prop name="top" value="1"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.H2"/>
+		<prop name="content" value="Subtítulo da Página"/>
+	</owned>
+	<owned name="a1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="2"/>
+		<prop name="href" value="/mogno-sample/app?mognoOrigin=Test1&amp;mognoDestiny=Test3"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.A"/>
+		<prop name="content" value="Link de teste!!"/>
+	</owned>
+	<owned name="b1">
+		<prop name="parent" value="a1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.B"/>
+		<prop name="content" value="Texto em bold!"/>
+	</owned>
+	<owned name="i1">
+		<prop name="parent" value="b1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.I"/>
+		<prop name="content" value="Texto em itálico!"/>
+	</owned>
+	<owned name="quote">
+		<prop name="parent" value="p1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Blockquote"/>
+		<prop name="content" value="Nonono onno nono nonono.&lt;br&gt;Nono no nonono on no.&lt;br&gt;Blabla bla blablabla blabla."/>
+	</owned>
+	<owned name="p1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="3"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.P"/>
+		<prop name="content" value="Meu primeiro parágrafo!&lt;br&gt;Segunda linha do primeiro parágrafo."/>
+	</owned>
+	<owned name="br1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="4"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Br"/>
+	</owned>
+	<owned name="hr1">
+		<prop name="left" value="0"/>
+		<prop name="top" value="5"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Hr"/>
+	</owned>
+	<owned name="table1">
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Table"/>
+		<prop name="style" value="border-style: solid; border-width: 1px;"/>
+		<prop name="cellpadding" value="1"/>
+		<prop name="cellspacing" value="1"/>
+		<prop name="border" value="1"/>
+		<prop name="top" value="6"/>
+	</owned>
+	<owned name="tr1">
+		<prop name="top" value="0"/>
+		<prop name="parent" value="table1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Tr"/>
+	</owned>
+	<owned name="th1">
+		<prop name="left" value="0"/>
+		<prop name="parent" value="tr1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Th"/>
+		<prop name="content" value="Primeiro"/>
+	</owned>
+	<owned name="th2">
+		<prop name="left" value="1"/>
+		<prop name="parent" value="tr1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Th"/>
+		<prop name="content" value="Segundo"/>
+	</owned>
+	<owned name="th3">
+		<prop name="left" value="2"/>
+		<prop name="parent" value="tr1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Th"/>
+		<prop name="content" value="Terceiro"/>
+	</owned>
+	<owned name="tr2">
+		<prop name="top" value="1"/>
+		<prop name="parent" value="table1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Tr"/>
+	</owned>
+	<owned name="td1">
+		<prop name="left" value="0"/>
+		<prop name="parent" value="tr2"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Td"/>
+		<prop name="align" value="right"/>
+		<prop name="content" value="1,23"/>
+	</owned>
+	<owned name="td2">
+		<prop name="left" value="1"/>
+		<prop name="parent" value="tr2"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Td"/>
+		<prop name="align" value="right"/>
+		<prop name="content" value="2,34"/>
+	</owned>
+	<owned name="td3">
+		<prop name="left" value="2"/>
+		<prop name="parent" value="tr2"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Td"/>
+		<prop name="align" value="right"/>
+		<prop name="content" value="3,45"/>
+	</owned>
+	<owned name="tr3">
+		<prop name="top" value="2"/>
+		<prop name="parent" value="table1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Tr"/>
+	</owned>
+	<owned name="td4">
+		<prop name="left" value="0"/>
+		<prop name="parent" value="tr3"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Td"/>
+		<prop name="align" value="center"/>
+		<prop name="content" value="01/02/2002"/>
+	</owned>
+	<owned name="td5">
+		<prop name="left" value="1"/>
+		<prop name="parent" value="tr3"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Td"/>
+		<prop name="align" value="center"/>
+		<prop name="content" value="01/08/2002"/>
+	</owned>
+	<owned name="td6">
+		<prop name="left" value="2"/>
+		<prop name="parent" value="tr3"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Td"/>
+		<prop name="align" value="center"/>
+		<prop name="content" value="01/02/2003"/>
+	</owned>
+	<owned name="ul1">
+		<prop name="top" value="7"/>
+		<prop name="parent" value="body"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Ul"/>
+	</owned>
+	<owned name="li1">
+		<prop name="top" value="0"/>
+		<prop name="parent" value="ul1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Li"/>
+		<prop name="content" value="Primeiro item de lista"/>
+	</owned>
+	<owned name="li2">
+		<prop name="top" value="1"/>
+		<prop name="parent" value="ul1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Li"/>
+		<prop name="content" value="Segundo item de lista"/>
+	</owned>
+	<owned name="ol1">
+		<prop name="top" value="2"/>
+		<prop name="parent" value="ul1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Ol"/>
+	</owned>
+	<owned name="li3">
+		<prop name="top" value="0"/>
+		<prop name="parent" value="ol1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Li"/>
+		<prop name="content" value="Primeiro item da sublista"/>
+	</owned>
+	<owned name="li4">
+		<prop name="top" value="1"/>
+		<prop name="parent" value="ol1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Li"/>
+		<prop name="content" value="Segundo item da sublista"/>
+	</owned>
+	<owned name="li5">
+		<prop name="top" value="3"/>
+		<prop name="parent" value="ul1"/>
+		<prop name="__CLASSNAME__" value="com.oktiva.mogno.html.Li"/>
+		<prop name="content" value="Terceiro item de lista"/>
+	</owned>
+</MognoComponent>
