@@ -13,6 +13,7 @@
   <property name="web-dist.dir" value="web-dist"/>
   <property environment="env"/>
   <property name="sample.deploy.dir" value="${env.CATALINA_HOME}/webapps"/>
+  <property name="javadoc.dir" value="${dist.dir}/docs/api"/>
 
 <!-- ==================== Compilation Classpath =========================== -->
 
@@ -71,19 +72,57 @@
     <jar basedir="${build.dir}" jarfile="${dist.dir}/${app.name}_${app.version}.jar"/>
   </target>
 
-<!-- ==================== Javadoc Target ================================== -->
-  <target depends="clean,dist" name="redist"/>
-  
-<!-- ==================== Web-Dist Target ===================================== -->
-  <target depends="prepare" description="Create Javadoc API documentation" name="javadoc">
-
-    <javadoc destdir="${dist.dir}/docs/api" excludepackagenames="com.oktiva.mogno.teste.*" packagenames="com.oktiva.mogno.*" sourcepath="src">
-      <classpath refid="compile.classpath"/>
-    </javadoc>
-
+<!-- ==================== SFDist Target ===================================== -->
+  <target depends="dist,javadoc" description="Create distribution files to SF.net" name="sfdist">
+    <delete verbose="true">
+	<fileset dir="${dist.dir}" includes="${app.name}_*.tar.gz"/>
+    </delete>
+    <tar destfile="${dist.dir}/${app.name}_${app.version}-src.tar.gz" compression="gzip">
+	    <tarfileset dir="." prefix="mogno">
+		    <exclude name="**/CVS"/>
+		    <include name="config/**"/>
+		    <include name="docs/**"/>
+		    <include name="lib/**"/>
+		    <include name="schema/**"/>
+		    <include name="src/**"/>
+		    <include name="build.properties"/>
+		    <include name="build.xml"/>
+		    <include name=".classpath"/>
+		    <include name=".project"/>
+	    </tarfileset>
+    </tar>
+    <tar destfile="${dist.dir}/${app.name}_${app.version}-src-nolib.tar.gz" compression="gzip">
+	    <tarfileset dir="." prefix="mogno">
+		    <exclude name="**/CVS"/>
+		    <include name="config/**"/>
+		    <include name="docs/**"/>
+		    <include name="schema/**"/>
+		    <include name="src/**"/>
+		    <include name="build.properties"/>
+		    <include name="build.xml"/>
+		    <include name=".classpath"/>
+		    <include name=".project"/>
+	    </tarfileset>
+    </tar>
+    <tar destfile="${dist.dir}/${app.name}_${app.version}-javadoc.tar.gz" compression="gzip">
+	    <tarfileset dir="${javadoc.dir}" prefix="api"/>
+    </tar>
   </target>
 
-<!-- ==================== Sample-Dist Target ===================================== -->
+<!-- ==================== Redist Target ================================== -->
+  <target depends="clean,dist" name="redist"/>
+  
+<!-- ==================== Javadoc Target ================================== -->
+	<target depends="prepare" description="Create Javadoc API documentation" name="javadoc">
+		<javadoc destdir="${javadoc.dir}"
+			excludepackagenames="com.oktiva.mogno.teste.*"
+			packagenames="com.oktiva.mogno.*,com.oktiva.util.*"
+			sourcepath="src">
+			<classpath refid="compile.classpath"/>
+		</javadoc>
+	</target>
+
+<!-- ==================== Web-Dist Target ===================================== -->
   <target depends="dist" description="Create web distribution" name="web-dist">
   <!-- copiar web.xml (config -> ${web-dist.dir}/WEB-INF/) -->
     <copy todir="${web-dist.dir}/WEB-INF">
@@ -101,11 +140,14 @@
     <jar basedir="${web-dist.dir}" jarfile="${dist.dir}/${app.name}.war"/>
   </target>
   
+<!-- ==================== Sample-Dist Target ===================================== -->
   <target depends="dist" description="Create sample application web archive" name="sample-dist">
     <ant dir="docs/sample/" target="dist">
       <property name="mogno.dist.dir" value="../../${dist.dir}"/>
     </ant>
   </target>
+  
+<!-- ==================== Sample-Deploy Target ===================================== -->
     <target depends="dist" description="Deploys sample application to web container" name="sample-deploy">
     <ant dir="docs/sample/" target="deploy">
       <property name="mogno.dist.dir" value="../../${dist.dir}"/>
