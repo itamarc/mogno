@@ -64,10 +64,6 @@
 
 <!-- ==================== Dist Target ===================================== -->
   <target depends="compile" description="Create binary distribution" name="dist">
-	<ant dir="../liboktiva-util-java/" target="dist"/>
-	<copy todir="../mogno/lib/" verbose="true">
-		<fileset dir="../liboktiva-util-java/dist/" includes="*.jar"/>
-	</copy>
     <delete verbose="true">
 	<fileset dir="${dist.dir}" includes="${app.name}_*.jar"/>
     </delete>
