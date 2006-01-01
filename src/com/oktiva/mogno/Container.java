@@ -81,9 +81,9 @@ public class Container  extends Visual {
 	 */
 	protected Vector getChildsVector(Component obj) {
 		Vector v = new Vector();
-		Enumeration enum = obj.listChilds();
-		while (enum.hasMoreElements()) {
-			String cname = (String)enum.nextElement();
+		Enumeration e = obj.listChilds();
+		while (e.hasMoreElements()) {
+			String cname = (String)e.nextElement();
 			Visual visual = (Visual)obj.getChild(cname);
 			if (visual == null) {
 				continue;

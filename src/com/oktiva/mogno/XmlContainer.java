@@ -52,9 +52,9 @@ public abstract class XmlContainer extends Container {
 		
 		setName((String)mine.get("name"));
 		
-		Enumeration enum = owned.keys();
-		while (enum.hasMoreElements()) {
-			Hashtable hash = (Hashtable)owned.get(enum.nextElement());
+		Enumeration e = owned.keys();
+		while (e.hasMoreElements()) {
+			Hashtable hash = (Hashtable)owned.get(e.nextElement());
 			if ("__OWNER__".equals(hash.get("parent"))) {
 				hash.put("parent",getName());
 			} else {
@@ -135,9 +135,9 @@ public abstract class XmlContainer extends Container {
 		}
 		onReceiveRequest();
 		// Saying to my children to receive the request
-		Enumeration enum = listChilds();
-		while (enum.hasMoreElements()) {
-			Component c = getChild((String)enum.nextElement());
+		Enumeration e = listChilds();
+		while (e.hasMoreElements()) {
+			Component c = getChild((String)e.nextElement());
 			if (c instanceof Visual) {
 				((Visual)c).receiveRequest(request);
 			}
@@ -199,9 +199,9 @@ public abstract class XmlContainer extends Container {
 	 */
 	protected Vector checkSyntaxFields() {
 		Vector v = new Vector();
-		Enumeration enum = listChilds();
-		while (enum.hasMoreElements()) {
-			v.add(enum.nextElement());
+		Enumeration e = listChilds();
+		while (e.hasMoreElements()) {
+			v.add(e.nextElement());
 		}
 		return v;
 	}

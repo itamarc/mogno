@@ -405,7 +405,7 @@ public class Component implements Cloneable {
 			Object ret=null;
 			if(met!=null) {
 				try {
-					ret=met.invoke(c, args);
+					ret=met.invoke(c, (Object)args);
 					if(ret!=null) {
 						hash.put(key, ret.toString());
 					}
