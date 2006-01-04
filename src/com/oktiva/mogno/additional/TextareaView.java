@@ -2,6 +2,7 @@
  * TextareaView.java
  *
  * Created on 19 de Julho de 2003, 16:51
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 
 package com.oktiva.mogno.additional;

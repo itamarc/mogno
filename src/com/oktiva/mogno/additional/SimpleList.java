@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
  * This components outputs an indented list.
  * @version $Id$
  * @author Itamar Carvalho &lt;itamar@oktiva.com.br&gt; and others.
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 public class SimpleList extends Visual {
 	public String evOnClick = "";

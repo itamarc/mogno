@@ -2,6 +2,7 @@
  * SelectView.java
  *
  * Created on 29 de Junho de 2003, 17:19
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 
 package com.oktiva.mogno.additional;

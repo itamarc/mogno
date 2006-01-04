@@ -1,7 +1,8 @@
 /*
  * MaskedInput.java
  *
- * Created on sábado, 31 de maio de 2003 15:52
+ * Created on sabado, 31 de maio de 2003 15:52
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 package com.oktiva.mogno.additional;
 

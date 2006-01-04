@@ -261,10 +261,10 @@ public class Component implements Cloneable {
 		for(int i = 0; i < m.length; i++) {
 			String nomeMetodo = m[i].getName();
 			if(m[i].getParameterTypes().length!=0 ||
-			v.contains(nomeMetodo)) {
+				v.contains(nomeMetodo)) {
 				continue;
 			}
-				if(nomeMetodo.startsWith("get") || nomeMetodo.startsWith("is")) {
+			if(nomeMetodo.startsWith("get") || nomeMetodo.startsWith("is")) {
 				nomeMetodo = nomeMetodo.replaceFirst("get|is", "");
 				h.put(nomeMetodo,m[i].getReturnType());
 			}
@@ -390,7 +390,7 @@ public class Component implements Cloneable {
 			char[] cha=mname.toCharArray();
 			cha[0]=Character.toLowerCase(cha[0]);
 			String key=new String(cha);
-
+			
 			Method met=null;
 			try {
 				met=c.getClass().getMethod("get"+mname,args);
@@ -405,7 +405,7 @@ public class Component implements Cloneable {
 			Object ret=null;
 			if(met!=null) {
 				try {
-					ret=met.invoke(c, (Object)args);
+					ret=met.invoke(c, args);
 					if(ret!=null) {
 						hash.put(key, ret.toString());
 					}
@@ -655,7 +655,7 @@ public class Component implements Cloneable {
 	 * <b>In Component, this is always false, because <i>there is no parent</i>.</b>
 	 * @param name The name of the ancestor component
 	 * @return boolean always false
-	 */	
+	 */
 	public boolean descendentOf(String name) {
 		return false;
 	}
@@ -673,7 +673,7 @@ public class Component implements Cloneable {
 	protected void setOwner(Component owner) {
 		this.owner = owner;
 	}
-
+	
 	public String serializedBag() {
 		Hashtable serializable = new Hashtable();
 		if (getBag() != null) {
@@ -698,7 +698,7 @@ public class Component implements Cloneable {
 			return "___Unserializable___";
 		}
 	}
-
+	
 	protected void unserializeBag(String data) {
 		try {
 			String[] strbytes = data.split("%");
@@ -713,6 +713,12 @@ public class Component implements Cloneable {
 			logger.warn("Error while unserializing bag... "+e);
 		}
 	}
-
-
+	
+	public String htmlize(String str) {
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		return str;
+	}
+	
 } // end Component

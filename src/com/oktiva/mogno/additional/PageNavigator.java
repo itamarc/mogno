@@ -2,6 +2,7 @@
  * PageNavigator.java
  *
  * Created on 3 de Julho de 2003, 10:21
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 
 package com.oktiva.mogno.additional;

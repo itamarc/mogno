@@ -1,5 +1,7 @@
 package com.oktiva.mogno.additional;
-
+/*
+ * vim:encoding=utf-8:fileencoding=utf-8
+ */
 import com.oktiva.mogno.Visual;
 import java.util.Hashtable;
 import java.util.Vector;
@@ -47,7 +49,7 @@ public class SuperTable extends com.oktiva.mogno.html.Table {
 				isHeaderCol |= (1 << (ii.intValue()-1));
 			} catch (Exception e) {}
 		}
-		//headerCells: 1,2&&3,0
+		//headerCells: 1,2&amp;&amp;3,0
 		String[] headerCellsArr = headerCells.split("\\&\\&");
 		for (int i=0; i<headerCellsArr.length; i++) {
 			isHeaderCell.add(headerCellsArr[i]);
@@ -56,7 +58,7 @@ public class SuperTable extends com.oktiva.mogno.html.Table {
 		captionPropsHtml = getPropertiesHtmlString(captionProperties);
 		//headerProperties: prop1=value1|prop2=value2
 		headerPropsHtml = getPropertiesHtmlString(headerProperties);
-		//cellProperties: top,left:prop1=value1|prop2=value2&&top,left:prop1=value1|prop2=value2
+		//cellProperties: top,left:prop1=value1|prop2=value2&amp;&amp;top,left:prop1=value1|prop2=value2
 		String[] cellPropsArr = cellProperties.split("\\&\\&");
 		for (int i=0; i<cellPropsArr.length; i++) {
 			String[] itens = cellPropsArr[i].split(":",2);
@@ -64,7 +66,7 @@ public class SuperTable extends com.oktiva.mogno.html.Table {
 				cellPropsHtml.put(itens[0], getPropertiesHtmlString(itens[1]));
 			}
 		}
-		//colProperties: left:prop1=value1|prop2=value2&&left:prop1=value1|prop2=value2
+		//colProperties: left:prop1=value1|prop2=value2&amp;&amp;left:prop1=value1|prop2=value2
 		String[] colPropsArr = colProperties.split("\\&\\&");
 		for (int i=0; i<colPropsArr.length; i++) {
 			String[] itens = colPropsArr[i].split(":",2);
@@ -72,7 +74,7 @@ public class SuperTable extends com.oktiva.mogno.html.Table {
 				colPropsHtml.put(itens[0], getPropertiesHtmlString(itens[1]));
 			}
 		}
-		//rowProperties: top:prop1=value1|prop2=value2&&top:prop1=value1|prop2=value2
+		//rowProperties: top:prop1=value1|prop2=value2&amp;&amp;top:prop1=value1|prop2=value2
 		String[] rowPropsArr = rowProperties.split("\\&\\&");
 		for (int i=0; i<rowPropsArr.length; i++) {
 			String[] itens = rowPropsArr[i].split(":",2);
@@ -220,14 +222,14 @@ public class SuperTable extends com.oktiva.mogno.html.Table {
 	}
 
 	/** Getter for property headerCells.<p>
-	 * Format of headerCells (top,left): 2,5&&3,0
+	 * Format of headerCells (top,left): 2,5&amp;&amp;3,0
 	 * @return Value of property headerCells.
 	 */
 	public String getHeaderCells() {
 		return headerCells;
 	}
 	/** Setter for property headerCells.
-	 * Format of headerCells (top,left): 2,5&&3,0
+	 * Format of headerCells (top,left): 2,5&amp;&amp;3,0
 	 * @param headerCells New value of property headerCells.
 	 */
 	public void setHeaderCells(String headerCells) {
@@ -250,14 +252,14 @@ public class SuperTable extends com.oktiva.mogno.html.Table {
 	}
 	
 	/** Getter for property cellProperties.<p>
-	 * Format of cellProperties: top,left:prop1=value1|prop2=value2&&top,left:prop1=value1|prop2=value2
+	 * Format of cellProperties: top,left:prop1=value1|prop2=value2&amp;&amp;top,left:prop1=value1|prop2=value2
 	 * @return Value of property cellProperties.
 	 */
 	public String getCellProperties() {
 		return cellProperties;
 	}
 	/** Setter for property cellProperties.
-	 * Format of cellProperties: top,left:prop1=value1|prop2=value2&&top,left:prop1=value1|prop2=value2
+	 * Format of cellProperties: top,left:prop1=value1|prop2=value2&amp;&amp;top,left:prop1=value1|prop2=value2
 	 * @param cellProperties New value of property cellProperties.
 	 */
 	public void setCellProperties(String cellProperties) {
@@ -265,14 +267,14 @@ public class SuperTable extends com.oktiva.mogno.html.Table {
 	}
 	
 	/** Getter for property colProperties.<p>
-	 * Format of colProperties: left:prop1=value1|prop2=value2&&left:prop1=value1|prop2=value2
+	 * Format of colProperties: left:prop1=value1|prop2=value2&amp;&amp;left:prop1=value1|prop2=value2
 	 * @return Value of property colProperties.
 	 */
 	public String getColProperties() {
 		return colProperties;
 	}
 	/** Setter for property colProperties.
-	 * Format of colProperties: left:prop1=value1|prop2=value2&&left:prop1=value1|prop2=value2
+	 * Format of colProperties: left:prop1=value1|prop2=value2&amp;&amp;left:prop1=value1|prop2=value2
 	 * @param colProperties New value of property colProperties.
 	 */
 	public void setColProperties(String colProperties) {
@@ -280,14 +282,14 @@ public class SuperTable extends com.oktiva.mogno.html.Table {
 	}
 	
 	/** Getter for property rowProperties.<p>
-	 * Format of rowProperties: top:prop1=value1|prop2=value2&&top:prop1=value1|prop2=value2
+	 * Format of rowProperties: top:prop1=value1|prop2=value2&amp;&amp;top:prop1=value1|prop2=value2
 	 * @return Value of property rowProperties.
 	 */
 	public String getRowProperties() {
 		return rowProperties;
 	}
 	/** Setter for property rowProperties.
-	 * Format of rowProperties: top:prop1=value1|prop2=value2&&top:prop1=value1|prop2=value2
+	 * Format of rowProperties: top:prop1=value1|prop2=value2&amp;&amp;top:prop1=value1|prop2=value2
 	 * @param rowProperties New value of property rowProperties.
 	 */
 	public void setRowProperties(String rowProperties) {

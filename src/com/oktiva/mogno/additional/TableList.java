@@ -2,6 +2,7 @@
  * TableList.java
  *
  * Created on Wednesday, June 04 2003 16:47
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 package com.oktiva.mogno.additional;
 
@@ -54,7 +55,7 @@ public class TableList extends Table {
 	 */
 	public String totalLineGroupId = "";
 	/** String with the comumn's names, in the following format:<br>
-	 * name1&name2&name3...
+	 * name1&amp;name2&amp;name3...
 	 * Limited to 64 columns, due to internal optimizations.
 	 */
 	public String columnIdentifiers = "";
@@ -92,8 +93,8 @@ public class TableList extends Table {
 	 */
 	public String headerRowProperties = "";
 	/** Properties of the Th's of the table header, in the following format:<br>
-	 * <code>col1attr1=val1|col1attr2=val2&col2attr3=val3...</code><br>
-	 * Example: <code>style=color: #808080; width=30%;|align=left&style=width=70%|align=right</code>
+	 * <code>col1attr1=val1|col1attr2=val2&amp;col2attr3=val3...</code><br>
+	 * Example: <code>style=color: #808080; width=30%;|align=left&amp;style=width=70%|align=right</code>
 	 * @see Th
 	 */
 	public String thProperties = "";
@@ -104,8 +105,8 @@ public class TableList extends Table {
 	 */
 	public String itemRowProperties = "";
 	/** Properties of the Td's of the table body, in the following format:<br>
-	 * <code>col1attr1=val1|col1attr2=val2&col2attr3=val3...</code><br>
-	 * Example: <code>style=background-color: #ffffff;|align=left&align=right</code>
+	 * <code>col1attr1=val1|col1attr2=val2&amp;col2attr3=val3...</code><br>
+	 * Example: <code>style=background-color: #ffffff;|align=left&amp;align=right</code>
 	 * @see Td
 	 */
 	public String tdProperties = "";
@@ -217,7 +218,7 @@ public class TableList extends Table {
 				if ((hasColHeaderProperties & (1 << i))!=0) {
 					ret.append(getPropertiesHtmlString(colHeaderProperties[i]));
 				}
-				ret.append(">").append(colNames[i]).append("</TH>");
+				ret.append(">").append(htmlize(colNames[i])).append("</TH>");
 			}
 			ret.append("</TR>\n");
 			// Build the item's rows

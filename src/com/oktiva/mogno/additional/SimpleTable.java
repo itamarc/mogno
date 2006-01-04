@@ -2,6 +2,7 @@
  * SimpleTable.java
  *
  * Created on 30 de Abril de 2003, 02:49
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 package com.oktiva.mogno.additional;
 
@@ -28,7 +29,7 @@ public class SimpleTable extends Table {
 	protected Vector dataVector = null;
 	private Vector removedRow = null;
 	/** String with the comumn's names and widths, in the following format:<br>
-	 * name1|attr1=val1|attr2=val2&name2|attr3=val3...
+	 * name1|attr1=val1|attr2=val2&amp;name2|attr3=val3...
 	 */
 	public String columnIdentifiers = "";
 	public String getColumnIdentifiers() {

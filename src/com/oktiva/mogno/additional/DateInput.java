@@ -1,8 +1,10 @@
 /*
  * DateInput.java
  *
- * Created on 24 de Março de 2003, 18:31
+ * Created on 24 de MarÃ§o de 2003, 18:31
+ * vim:fileencoding=utf-8:encoding=utf-8
  */
+
 package com.oktiva.mogno.additional;
 
 import com.oktiva.mogno.SyntaxErrorException;

@@ -3,6 +3,9 @@ package com.oktiva.mogno.additional;
 import com.oktiva.mogno.*;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
+/*
+ * vim:encoding=utf-8:fileencoding=utf-8
+ */
 
 /** Includes another TopLevel inside.
  * <p>This component allows you to include another TopLevel component inside a

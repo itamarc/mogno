@@ -1,5 +1,7 @@
 package com.oktiva.mogno.additional;
-
+/*
+ * vim:encoding=utf-8:fileencoding=utf-8
+ */
 import com.oktiva.mogno.*;
 import java.io.File;
 import java.util.Hashtable;
@@ -13,7 +15,7 @@ import org.gjt.itemplate.*;
  * in the <tt>vars</tt> Hashtable.
  * @version $Id$
  * @author Itamar Carvalho &lt;itamar@oktiva.com.br&gt; and others.
- * @see <a href="http://www.gjt.org/pkgdoc/org/gjt/itemplate/index.html">ITemplate</a>
+ * @see <a href="http://www.gjt.org/pkgdoc/org/gjt/itemplate/index.html"> ITemplate</a>
  */
 public class Template extends Visual {
 	static Logger logger = Logger.getLogger(Template.class.getName());

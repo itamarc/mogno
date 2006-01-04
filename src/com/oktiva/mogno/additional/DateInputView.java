@@ -2,6 +2,7 @@
  * InputView.java
  *
  * Created on June 02 2003 21:16
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 package com.oktiva.mogno.additional;
 

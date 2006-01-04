@@ -72,12 +72,12 @@ public class NumberUtils {
 		return true;
 	}
 	
-	/** Retorna um float baseado em uma String de entrada, um número de casas decimais e
+	/** Retorna um float baseado em uma String de entrada, um nÃºmero de casas decimais e
 	 * uma localidade.
 	 * @param f String representando um float
-	 * @param d int representando o número de casas decimais
+	 * @param d int representando o n&uacute;mero de casas decimais
 	 * @param l Locale representando uma localidade
-	 * @return Um float, caso seja um float válido ou <b>NaN</b>(Not a Number)
+	 * @return Um float, caso seja um float v&aacute;lido ou <b>NaN</b>(Not a Number)
 	 */
 	public static float retornaFloat(String f, int d, Locale l) {
 		NumberFormat nf = NumberFormat.getInstance(l);
@@ -97,7 +97,7 @@ public class NumberUtils {
 	 * uma localidade.
 	 * @param f String representando um float
 	 * @param l Locale representando uma localidade
-	 * @return Um float, caso seja um float válido ou <b>NaN</b>(Not a Number)
+	 * @return Um float, caso seja um float v&aacute;lido ou <b>NaN</b>(Not a Number)
 	 */
 	public static float retornaFloat(String f, Locale l) {
 		NumberFormat nf = NumberFormat.getInstance(l);
@@ -110,7 +110,7 @@ public class NumberUtils {
 		return valor;
 	}
 	
-	/** Arredonda um float com o número de casas decimais especificados.
+	/** Arredonda um float com o n&uacute;mero de casas decimais especificados.
 	 */
 	public static float roundFloat(float f, int casasDecimais) {
 		double potencia = Math.pow(10d, (double)casasDecimais);
@@ -118,12 +118,12 @@ public class NumberUtils {
 		return (float)(Math.round(ff)/potencia);
 	}
 	
-	/** Retorna um double baseado em uma String de entrada, um número de casas decimais e
+	/** Retorna um double baseado em uma String de entrada, um n&uacute;mero de casas decimais e
 	 * uma localidade.
 	 * @param r String representando um double
-	 * @param d int representando o número de casas decimais
+	 * @param d int representando o n&uacute;mero de casas decimais
 	 * @param l Locale representando uma localidade
-	 * @return Um double, caso seja um double válido ou <b>NaN</b>(Not a Number)
+	 * @return Um double, caso seja um double v&aacute;lido ou <b>NaN</b>(Not a Number)
 	 */
 	public static double retornaDouble(String d, int casasDecimais, Locale l) {
 		NumberFormat nf = NumberFormat.getInstance(l);
@@ -143,7 +143,7 @@ public class NumberUtils {
 	 * uma localidade.
 	 * @param d String representando um double
 	 * @param l Locale representando uma localidade
-	 * @return Um double, caso seja um double válido ou <b>NaN</b>(Not a Number)
+	 * @return Um double, caso seja um double v&aacute;lido ou <b>NaN</b>(Not a Number)
 	 */
 	public static double retornaDouble(String d, Locale l) {
 		NumberFormat nf = NumberFormat.getInstance(l);
@@ -156,7 +156,7 @@ public class NumberUtils {
 		return valor;
 	}
 	
-	/** Arredonda um double com o número de casas decimais especificados.
+	/** Arredonda um double com o n&uacute;mero de casas decimais especificados.
 	 */
 	public static double roundDouble(double d, int casasDecimais) {
 		double potencia = Math.pow(10d, (double)casasDecimais);
@@ -169,8 +169,8 @@ public class NumberUtils {
 	 */
 	public static String obterDigitoVerificador(String codigo) {
 		if(codigo.indexOf("-")==-1) {
-			// Não calcula se já tiver...
-			// o "-" é o identificador de digito verificador
+			// Nï¿½o calcula se jï¿½ tiver...
+			// o "-" ï¿½ o identificador de digito verificador
 			int soma = 0;
 			for(int i=0;i<codigo.length();i++) {
 				String c = codigo.substring(i,i+1);
@@ -186,7 +186,7 @@ public class NumberUtils {
 						soma += alg;
 					}
 				} catch (NumberFormatException e) {
-					// ignorar tudo que não for número.
+					// ignorar tudo que nï¿½o for nï¿½mero.
 					continue;
 				}
 			}
@@ -196,7 +196,7 @@ public class NumberUtils {
 		}
 	}
 	
-	/** Divide o valor total passado em um número de parcelas determinado,
+	/** Divide o valor total passado em um nï¿½mero de parcelas determinado,
 	 * ajustando os valores das parcelas para a soma das parcelas ser
 	 * exatamente o valor total, com 2 casas decimais.
 	 */
@@ -206,14 +206,14 @@ public class NumberUtils {
 		double valor = valorTotal.doubleValue();
 		// dividir o valor e arredondar
 		double valorParcela = NumberUtils.roundDouble(valor/numParcelas,2);
-		// somar parcelas e ver diferença
+		// somar parcelas e ver diferenï¿½a
 		
 		double soma = 0d;
 		for(int i=0; i<numParcelas; i++) {
 			soma = NumberUtils.roundDouble(soma+valorParcela,2);
 			valores[i] = valorParcela;
 		}
-		// ajustar diferença
+		// ajustar diferenï¿½a
 		if(valor > soma) {
 			double diferenca = NumberUtils.roundDouble(valor-soma,2);
 			int parc = 0;
@@ -238,7 +238,7 @@ public class NumberUtils {
 		return retorno;
 	}
 	
-	/** Retorna um número formato com virgulas implicitas.
+	/** Retorna um nï¿½mero formato com virgulas implicitas.
 	 * @param num
 	 * @param numCasasDecimais
 	 * @param numCasasInteira

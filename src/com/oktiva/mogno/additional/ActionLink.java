@@ -1,5 +1,9 @@
 package com.oktiva.mogno.additional;
 
+/*
+ * vim:fileencoding=utf-8:encoding=utf-8
+ */
+
 import com.oktiva.mogno.html.*;
 import javax.servlet.http.HttpServletRequest;
 

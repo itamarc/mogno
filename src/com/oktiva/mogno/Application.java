@@ -8,9 +8,11 @@ package com.oktiva.mogno;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -40,7 +42,7 @@ public class Application implements Cloneable {
 	protected String defaultTopLevel = null;
 	protected Hashtable topLevels = new Hashtable();
 	/**
-	 * Hashtable of Hashtables.  The keys are the TopLevels names and the 
+	 * Hashtable of Hashtables.  The keys are the TopLevels names and the
 	 * inner Hashtables has the keys <i>class</i> and <i>xml</i>.
 	 */
 	protected Hashtable topLevelsData = new Hashtable();
@@ -49,13 +51,13 @@ public class Application implements Cloneable {
 	protected Hashtable applicationFilerParams = new Hashtable();
 	
 	String rootDir = ".";
-
+	
 	protected boolean designing = false;
 	
 	/** Creates a new instance of Application */
 	public Application() {
 	}
-
+	
 	/**
 	 * Initialize this application passing the XML file to load.
 	 * @param xmlFileName The path to the XML file to load.
@@ -64,7 +66,7 @@ public class Application implements Cloneable {
 	throws IOException {
 		initialize(new File(rootDir+"/WEB-INF/xml/"+xmlFileName));
 	}
-
+	
 	/**
 	 * Initialize this application passing the XML file to load.
 	 * @param xmlFile The File whith XML to load.
@@ -107,7 +109,7 @@ public class Application implements Cloneable {
 	public void setApplicationFilerParams(Hashtable params) {
 		applicationFilerParams = params;
 	}
-
+	
 	/**
 	 * Store the current application into the file defined by the xmlFileName
 	 * property
@@ -118,7 +120,7 @@ public class Application implements Cloneable {
 		applicationFiler.setParams(applicationFilerParams);
 		applicationFiler.store(topLevelsData, defaultTopLevel);
 	} // end store
-
+	
 	/** Add the TopLevel data supplied to the topLevelsData Hashtable.
 	 * The XML file name defaults to <tt><i>name</i>.xml</tt>.
 	 * @param name Name of the TopLevel.  Must be unique.
@@ -146,7 +148,7 @@ public class Application implements Cloneable {
 		hash.put("xml", xmlFileName);
 		topLevelsData.put(name,hash);
 	}
-
+	
 	/** Remove from the application the TopLevel registered under the <i>name</i> supplied.
 	 * Does not change the XML, you must call {@link #store()} if you want this.
 	 * @param name Name of the TopLevel to remove.
@@ -183,7 +185,7 @@ public class Application implements Cloneable {
 		}
 		defaultTopLevel=name;
 	}
-
+	
 	/**
 	 * @return The name of the default TopLevel.
 	 */
@@ -270,7 +272,13 @@ public class Application implements Cloneable {
 	throws IOException {
 		logger.error("Emergency: "+e.getClass().getName()+" - msg:"+e.getMessage());
 		PrintWriter out = response.getWriter();
-		response.setContentType("text/plain");
+		if(java.nio.charset.Charset.isSupported("utf-8")) {
+			response.setContentType("text/plain; charset=utf-8");
+			response.setCharacterEncoding("utf-8");
+		} else {
+			System.err.println("utf-8 not supported!!");
+			response.setContentType("text/plain; charset=iso-8859-1");
+		}
 		out.println("FATAL EXCEPTION: "+e.getClass().getName());
 		out.println("Message: "+e.getMessage());
 		out.println("------------------------------\nStack trace:\n");
@@ -289,9 +297,22 @@ public class Application implements Cloneable {
 	 */
 	public void outHtml(String html)
 	throws IOException {
-		PrintWriter out = response.getWriter();
+		response.setLocale(new Locale("pt", "br"));
 		response.setContentType("text/html");
-		out.println(html);
+		if(java.nio.charset.Charset.isSupported("utf-8")) {
+			response.setCharacterEncoding("utf-8");
+		} else {
+			System.err.println("utf-8 not supported!!");
+		}
+		/* this code used to be, but I changed it
+		 * to use OutputStream as that didn't try
+		 * to do some nasty charset conversions to
+		 * my utf-8 strings.
+		 * PrintWriter out = response.getWriter();
+		 * out.println(html);
+		 */
+		OutputStream out = response.getOutputStream();
+		out.write(html.getBytes());
 	}
 	
 	/**
@@ -303,22 +324,22 @@ public class Application implements Cloneable {
 		PrintWriter out = response.getWriter();
 		out.print(str);
 	}
-
-	/** 
+	
+	/**
 	 * @return the servlet request passed to run()
 	 */
 	public HttpServletRequest getServletRequest() {
 		return request;
 	}
 	
-	/** 
+	/**
 	 * @return the servlet response passed to run()
 	 */
 	public HttpServletResponse getServletResponse() {
 		return response;
 	}
-
-	/** 
+	
+	/**
 	 * @return the HTTP Session
 	 */
 	public HttpSession getSession() {
@@ -350,7 +371,7 @@ public class Application implements Cloneable {
 	}
 	
 	/** Getter for property designing.
-	 * @return Value of property designing.
+	 * te* @return Value of property designing.
 	 * @see #designing
 	 */
 	public boolean isDesigning() {

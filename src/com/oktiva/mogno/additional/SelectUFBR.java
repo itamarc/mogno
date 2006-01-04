@@ -1,4 +1,7 @@
 package com.oktiva.mogno.additional;
+/*
+ * vim:encoding=utf-8:fileencoding=utf-8
+ */
 
 import com.oktiva.mogno.Component;
 import com.oktiva.mogno.html.Option;

@@ -2,6 +2,7 @@
  * SuperSelect.java
  *
  * Created on 29 de Dezembro de 2003, 20:43
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 package com.oktiva.mogno.additional;
 
@@ -88,7 +89,7 @@ public class SuperSelect extends SelectView {
 		this.options = options;
 	}
 
-	/** String in the format <tt>value|label[&&value|label[&&...]]</tt>
+	/** String in the format <tt>value|label[&amp;&amp;value|label[&amp;&amp;...]]</tt>
 	 */
 	public String getOptionsString() {
 		StringBuffer str = new StringBuffer();
@@ -102,7 +103,7 @@ public class SuperSelect extends SelectView {
 		return str.toString();
 	}
 
-	/** String in the format <tt>value|label[&&value|label[&&...]]</tt>
+	/** String in the format <tt>value|label[&amp;&amo;value|label[&amp;&amp;...]]</tt>
 	 */
 	public void setOptionsString(String optionsString) {
 		this.optionsString = optionsString;

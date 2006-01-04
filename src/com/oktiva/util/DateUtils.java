@@ -1,7 +1,7 @@
 /*
  * DateUtils.java
  *
- * Created on terça, 05 de novembro de 2002 15:07
+ * Created on terca, 05 de novembro de 2002 15:07
  */
 package com.oktiva.util;
 
@@ -13,7 +13,7 @@ import java.util.*;
 /** Date util functions.
  */
 public class DateUtils {
-	public static String[] nomeMes = {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto",
+	public static String[] nomeMes = {"janeiro", "fevereiro", "mar&ccedil;o", "abril", "maio", "junho", "julho", "agosto",
 	"setembro", "outubro", "novembro", "dezembro"};
 	/** @return aaaa-mm-dd
 	 */
@@ -33,7 +33,7 @@ public class DateUtils {
 		return data.substring(6,8)+separador+data.substring(4,6)+separador+data.substring(0,4);
 	}
 	
-	/** Obtém um Gregorian Calendar de datas no formato Iso ou no formato
+	/** Obtem um Gregorian Calendar de datas no formato Iso ou no formato
 	 * dd-mm-aaaa. Aceita data com os separadores: -/
 	 */
 	public static GregorianCalendar getGregorianCalendar(String data) {
@@ -113,8 +113,8 @@ public class DateUtils {
 		return true;
 	}
 	
-	/** @param Iso Data em um dos formatos: <ul><li>"aaaa-mm-dd". mm e dd não precisam ter 0 na frente.
-	 * <li>"aaaammdd", podendo ter outros d&iacute;gitos após "dd" (como hora, minuto e segundo).
+	/** @param Iso Data em um dos formatos: <ul><li>"aaaa-mm-dd". mm e dd nÃ£o precisam ter 0 na frente.
+	 * <li>"aaaammdd", podendo ter outros d&iacute;gitos apï¿½s "dd" (como hora, minuto e segundo).
 	 * Estes d&iacute;gitos extras s&atilde;o ignorados.</ul>
 	 * @return <b>true</b> se a data for v&aacute;lida, <b>false</b> caso contr&aacute;rio.
 	 */
@@ -274,9 +274,9 @@ public class DateUtils {
 		return Math.abs(dias);
 	}
 	
-	/** Verifica se, para um dado vencimento, há atraso.
+	/** Verifica se, para um dado vencimento, hï¿½ atraso.
 	 * @param vencimento Data no formato aaaa-mm-dd
-	 * @return <b>false</b> se o vencimento é hoje ou no futuro, <b>true</b> se foi até ontem.
+	 * @return <b>false</b> se o vencimento ï¿½ hoje ou no futuro, <b>true</b> se foi atï¿½ ontem.
 	 */
 	public static boolean atrasado(String vencimento) {
 		GregorianCalendar gcVenc = DateUtils.getGregorianCalendar(vencimento);
@@ -324,7 +324,7 @@ public class DateUtils {
 	/**
 	 * @param hora Hora no formato hh:mm ou hh:mm:ss
 	 * @return Hora no formato hh:mm:ss (incluindo zeros em ss se necess&aacute;rio).
-	 * Null caso a hora passada não seja v&aacute;lida.
+	 * Null caso a hora passada nï¿½o seja v&aacute;lida.
 	 */
 	public static String retornaHora(String hora) {
 		if (!horaValida(hora)) {
@@ -340,7 +340,7 @@ public class DateUtils {
 	/**
 	 * @param hora Hora no formato hh:mm ou hh:mm:ss
 	 * @return Hora no formato hh:mm
-	 * Null caso a hora passada não seja v&aacute;lida.
+	 * Null caso a hora passada nï¿½o seja v&aacute;lida.
 	 */
 	public static String retornaHoraHM(String hora) {
 		if(!horaValida(hora)) {
@@ -360,7 +360,7 @@ public class DateUtils {
 		return gc.get(gc.DAY_OF_MONTH)+" de "+nomeMes[gc.get(gc.MONTH)]+" de "+gc.get(gc.YEAR);
 	}
 	/**
-	 * Constrói uma String representando o dia de hoje no formato Iso.
+	 * Constrï¿½i uma String representando o dia de hoje no formato Iso.
 	 * @return String representando o dia atual.
 	 */
 	public static String hoje() {
@@ -369,15 +369,15 @@ public class DateUtils {
 	
 	
 	/**
-	 * Verifica se data está entre limiteInferior e limiteSuperior.
+	 * Verifica se data estï¿½ entre limiteInferior e limiteSuperior.
 	 *@param String limite inferior
 	 *@param String limite superior
 	 *@param String data a ser testada
-	 *@return boolean Retorna true caso esteja na faixa. Caso alguma das datas seja inválida
-	 * ou a data testada não esteja nas faixa retorna false.
+	 *@return boolean Retorna true caso esteja na faixa. Caso alguma das datas seja invï¿½lida
+	 * ou a data testada nï¿½o esteja nas faixa retorna false.
 	 */
 	public static boolean verificarFaixa(String limiteInferior, String limiteSuperior, String data) {
-		// Verifica se as 3 datas são datas Iso ou dma válidas.
+		// Verifica se as 3 datas sï¿½o datas Iso ou dma vï¿½lidas.
 		if((DateUtils.dataValida(limiteSuperior)||DateUtils.dataIsoValida(limiteSuperior))&&(DateUtils.dataValida(limiteInferior)||DateUtils.dataIsoValida(limiteInferior))
 		&&(DateUtils.dataValida(data)||DateUtils.dataIsoValida(data))) {
 			GregorianCalendar li = getGregorianCalendar(limiteInferior);
@@ -391,9 +391,9 @@ public class DateUtils {
 		
 	}
 	
-	/** Calcula as datas de vencimentos, a partir de uma data inicial (incluída
+	/** Calcula as datas de vencimentos, a partir de uma data inicial (incluï¿½da
 	 * no retorno), dos dias entre as parcelas, dos dias antes da primeira
-	 * parcela (carência) e do número de parcelas.
+	 * parcela (carï¿½ncia) e do nï¿½mero de parcelas.
 	 */
 	public static Date[] obterVencimentosParcelas(GregorianCalendar dataInicial, int diasEntreParcelas, int diasCarencia, int numParcelas) {
 		Date[] vencs = new Date[numParcelas];
@@ -430,12 +430,12 @@ public class DateUtils {
 		return gregorianCalendar2AMD(gc);
 	}
 	
-	/** Pega um objeto Date e transforma numa string que representa o período,
+	/** Pega um objeto Date e transforma numa string que representa o perï¿½odo,
 	 * dada uma certa periodicidade.<br>
 	 * @param data Data a ser convertida.
 	 * @param periodicidade String representando a periodicidade.
 	 * <b>NOTA: atualmente somente suporta periodicidade "mensal" e "anual".</b>
-	 * @return Uma string que representa um período.  Por exemplo: <tt>02/2003</tt>
+	 * @return Uma string que representa um perï¿½odo.  Por exemplo: <tt>02/2003</tt>
 	 * null em caso de erro.
 	 * @see #periodo2date
 	 * @see java.text.SimpleDateFormat
@@ -457,14 +457,14 @@ public class DateUtils {
 		return periodo;
 	}
 	
-	/** Pega uma string representando um período e transforma em um date.<br>
-	 * Campos não pertinentes no período são transformados em valores padrão:<br>
+	/** Pega uma string representando um perï¿½odo e transforma em um date.<br>
+	 * Campos nï¿½o pertinentes no perï¿½odo sï¿½o transformados em valores padrï¿½o:<br>
 	 * <tt>yyyy-01-01 00:00:00,0</tt><br>
-	 * (O ano não contém valor padrão, pois está presente em qualquer periodicidade.)
-	 * @param periodo String representando um período.  Por exemplo: <tt>02/2003</tt>
+	 * (O ano nï¿½o contï¿½m valor padrï¿½o, pois estï¿½ presente em qualquer periodicidade.)
+	 * @param periodo String representando um perï¿½odo.  Por exemplo: <tt>02/2003</tt>
 	 * @param periodicidade String representando a periodicidade.
 	 * <b>NOTA: atualmente somente suporta periodicidade "mensal" e "anual".</b>
-	 * @return Um objeto Date relativo ao período, ou null em caso de erro.
+	 * @return Um objeto Date relativo ao perï¿½odo, ou null em caso de erro.
 	 * @see #date2periodo
 	 * @see java.text.SimpleDateFormat
 	 */

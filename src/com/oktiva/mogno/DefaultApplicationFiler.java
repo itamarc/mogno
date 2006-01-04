@@ -26,7 +26,7 @@ public class DefaultApplicationFiler implements ApplicationFiler {
 	public DefaultApplicationFiler() {
 	}
 	
-	/** @param params Este filer só precisa de um parâmetro: um File onde se encontra o XML, sob a chave "xmlFile".
+	/** @param params Este filer s&oacute; precisa de um par&acric;metro: um File onde se encontra o XML, sob a chave "xmlFile".
 	 */
 	public void setParams(Hashtable params) {
 		xmlFile = (File)params.get("xmlFile");

@@ -14,17 +14,17 @@ import java.util.*;
  */
 public interface ApplicationFiler {
 	/** 
-	 * @param params Hashtable contendo os parâmetros para o filer.
+	 * @param params Hashtable contendo os parametros para o filer.
 	 */
 	public void setParams(Hashtable params);
 	/**
 	 * @return Hashtable contendo: um Hashtable sob a chave "topLevelsData"
-	 * e um String sob a chave "defaultTopLevel".  O hash terá as chaves 
+	 * e um String sob a chave "defaultTopLevel".  O hash ter&aacute; as chaves 
 	 * "class" e "xml" dentro dele, sob chaves com os nomes dos topLevels.
 	 */
 	public Hashtable load() throws IOException;
 	/**
-	 * @param topLevelsData Hashtable contendo os atributos dos TopLevels da aplicação a ser salva.
+	 * @param topLevelsData Hashtable contendo os atributos dos TopLevels da aplica&ccedil;&atilde;o a ser salva.
 	 * @param defaultTopLevel String com o nome do TopLevel default.
 	 */
 	public void store(Hashtable topLevelsData, String defaultTopLevel) throws IOException;

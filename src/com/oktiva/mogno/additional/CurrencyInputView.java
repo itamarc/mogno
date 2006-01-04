@@ -1,5 +1,7 @@
 package com.oktiva.mogno.additional;
-
+/*
+ * vim:fileencoding=utf-8:encoding=utf-8
+ */
 import java.util.Currency;
 import java.text.NumberFormat;
 import java.util.Locale;

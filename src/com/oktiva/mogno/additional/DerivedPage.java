@@ -2,6 +2,7 @@
  * DerivedPage.java
  *
  * Created on quarta, 19 de fevereiro de 2003 09:14
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 package com.oktiva.mogno.additional;
 

@@ -2,6 +2,7 @@
  * DoubleInput.java
  *
  * Created on 31 de Maio de 2003 18:46
+ * vim:encoding=utf-8:fileencoding=utf-8
  */
 package com.oktiva.mogno.additional;
 

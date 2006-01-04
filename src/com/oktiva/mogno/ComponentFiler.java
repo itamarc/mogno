@@ -16,7 +16,7 @@ import java.util.*;
  */
 public interface ComponentFiler {
 	/** 
-	 * @param params Hashtable contendo os parâmetros para o filer.
+	 * @param params Hashtable contendo os par&acirc;metros para o filer.
 	 */
 	public void setParams(Hashtable params);
 	/**
@@ -33,14 +33,14 @@ public interface ComponentFiler {
 	/**
 	 * @param mine Hashtable contendo os atributos do compomente a ser salvo.
 	 * @param owned Hashtable de hashtables contendo as propriedades dos 
-	 *              componentes possuídos pelo componente a ser salvo.
-	 *		Os componentes serão salvos na ordem das chaves deste hash.
+	 *              componentes possu&iacute;dos pelo componente a ser salvo.
+	 *		Os componentes ser&atilde;o salvos na ordem das chaves deste hash.
 	 */
 	public void store(Hashtable mine, Hashtable owned) throws IOException;
 	/**
 	 * @param mine Hashtable contendo os atributos do compomente a ser salvo.
 	 * @param owned Vector de hashtables contendo as propriedades dos 
-	 *              componentes possuídos pelo componente a ser salvo, na ordem desejada.
+	 *              componentes possu&iacute;dos pelo componente a ser salvo, na ordem desejada.
 	 */
 	public void store(Hashtable mine, Vector owned) throws IOException;
 }
